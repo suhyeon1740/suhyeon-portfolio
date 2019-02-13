@@ -9,23 +9,23 @@
 <script>
 
 export default {
-    name : 'project',
-    data : function() {
-        return {
-            btnState : false
-        }
-    },
-    methods : {
-        btnShow : function() {
-            this.btnState=true
-        },
-        btnHide : function() {
-            this.btnState=false;
-        },
-        btnClick : function() {            
-            this.$emit('child-event',this.$vnode.key)
-        }
+  name: 'project',
+  data: function () {
+    return {
+      btnState: false
     }
+  },
+  methods: {
+    btnShow: function () {
+      this.btnState = true
+    },
+    btnHide: function () {
+      this.btnState = false
+    },
+    btnClick: function () {
+      this.$emit('child-event', this.$vnode.key)
+    }
+  }
 }
 </script>
 

@@ -4,15 +4,15 @@
 
 <script>
 export default {
-    name : 'slide-image',
-    data : function() {
-        return {
-            show : false
-        }
-    },
-    created : function() {
-        this.$emit('show-slides',1)
+  name: 'slide-image',
+  data: function () {
+    return {
+      show: false
     }
+  },
+  created: function () {
+    this.$emit('show-slides', 1)
+  }
 }
 </script>
 

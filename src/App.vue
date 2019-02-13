@@ -65,48 +65,48 @@ import Gallery from './components/Gallery.vue'
 import ProjectPopup from './components/ProjectPopup.vue'
 
 export default {
-    name: 'app',
-    components: {
-        SkillBar,Gallery,ProjectPopup
-    },
-    data : function() {
-        return {
-            fixedClass : {
-                fixed : false
-            },
-           triggerState : false,
-           menuState : true
-        }
-    },
-    methods : {
-       scrollHandler : function() {
-           //메뉴바 FIXED
-           if(window.scrollY > 100 ) {
-               this.fixedClass.fixed = true
-               this.triggerState=true;
-           } else {
-               this.fixedClass.fixed = false
-               this.triggerState=false;
+  name: 'app',
+  components: {
+    SkillBar, Gallery, ProjectPopup
+  },
+  data: function () {
+    return {
+      fixedClass: {
+        fixed: false
+      },
+      triggerState: false,
+      menuState: true
+    }
+  },
+  methods: {
+    scrollHandler: function () {
+      // 메뉴바 FIXED
+      if (window.scrollY > 100) {
+        this.fixedClass.fixed = true
+        this.triggerState = true
+      } else {
+        this.fixedClass.fixed = false
+        this.triggerState = false
 
-               if(window.innerWidth<=360) this.menuState=false;
-           }
-       },
-       goAbout : function() {
-           this.$refs.about.click();
-       },
-       mobileMenu : function() {
-           this.menuState = !this.menuState;
-       },
-       handleResize : function() {
-           if(window.innerWidth>360) this.menuState=true;
-           else this.menuState = false;
-       }
-   },
-   created() {
-       window.addEventListener('scroll',this.scrollHandler);
-       window.addEventListener('resize',this.handleResize);
-   },
-
+        if (window.innerWidth <= 740) this.menuState = false
+      }
+    },
+    goAbout: function () {
+      this.$refs.about.click()
+    },
+    mobileMenu: function () {
+      this.menuState = !this.menuState
+    },
+    handleResize: function () {
+      if (window.innerWidth > 740) this.menuState = true
+      else this.menuState = false
+      console.log('handleResize')
+    }
+  },
+  created () {
+    window.addEventListener('scroll', this.scrollHandler)
+    window.addEventListener('resize', this.handleResize)
+  }
 }
 </script>
 
@@ -264,7 +264,7 @@ nav a#trigger {
     width:100%;
     height:100%;
     background-size: cover;
-    box-shadow: inset 0 0 0 1000px rgba(0,0,0,.5);
+    box-shadow: inset 0 0 0 1000px rgba(0,0,0,.6);
 }
 .home-text {
     font-size: 50pt;

@@ -14,21 +14,21 @@
 
 <script>
 export default {
-    name : 'skill-bar',
-    data : function() {
-        return {
-            skills : [
-                { id : 0, name : "HTML", percent:60 },
-                { id : 1, name : "CSS", percent:40 },
-                { id : 2, name : "JQUERY", percent:70 },
-                { id : 3, name : "VUE", percent:30 },
-                { id : 4, name : "PHP", percent:60 },
-                { id : 5, name : "PHOTOSHOP", percent:40 },
-                { id : 6, name : "UNITY", percent:20 },
-                { id : 7, name : "ANDROID", percent:20 }
-            ]
-        }
+  name: 'skill-bar',
+  data: function () {
+    return {
+      skills: [
+        { id: 0, name: 'HTML', percent: 60 },
+        { id: 1, name: 'CSS', percent: 40 },
+        { id: 2, name: 'JQUERY', percent: 70 },
+        { id: 3, name: 'VUE', percent: 30 },
+        { id: 4, name: 'PHP', percent: 60 },
+        { id: 5, name: 'PHOTOSHOP', percent: 40 },
+        { id: 6, name: 'UNITY', percent: 20 },
+        { id: 7, name: 'ANDROID', percent: 20 }
+      ]
     }
+  }
 }
 </script>
 

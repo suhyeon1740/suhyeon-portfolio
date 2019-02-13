@@ -3,7 +3,7 @@
         <div class="">
             <div class="project_content">
                 <div class="screenshot_wrap">
-                    <slide-image v-for="img in imageSrc" :src="require('../assets/images/project/'+img.file)"
+                    <slide-image v-for="(img,index) in imageSrc" :key="index" :src="require('../assets/images/project/'+img.file)"
                         @show-slides="showSlides"
                         :style="{'width':img.width}"
                     ></slide-image>
@@ -35,48 +35,47 @@ import eventBus from '../EventBus'
 import SlideImage from './SlideImage.vue'
 
 export default {
-    name : 'project-popup',
-    components : {SlideImage},
-    created : function() {
-            eventBus.$on('popup-show', this.popupShow);
-    },
-    data : function() {
-        return {
-            popupState : false,
-            name : '',
-            language : '',
-            description : '',
-            imageSrc : [],
-            slideIndex : 1
-        }
-    },
-    methods : {
-        popupShow : function(data) {
-            this.popupState = true;
-            this.name = data.name;
-            this.language = data.language;
-            this.description = data.description;
-            this.imageSrc = data.src;
-            //this.showSlides(this.slideIndex);
-        },
-        popupClose : function() {
-            this.popupState = false;
-            this.slideIndex = 1;
-        },
-        plusSlides : function(n) {
-            this.showSlides(this.slideIndex +=n );
-        },
-        showSlides : function(n) {
-            var i;
-            var slides = this.$children;
-            if(n>slides.length) {this.slideIndex = 1}
-            if(n<1) { this.slideIndex = slides.length}
-            for (i=0; i<slides.length; i++) {
-                slides[i].show = false;
-            }
-            slides[this.slideIndex-1].show = true;
-        }
+  name: 'project-popup',
+  components: {SlideImage},
+  created: function () {
+    eventBus.$on('popup-show', this.popupShow)
+  },
+  data: function () {
+    return {
+      popupState: false,
+      name: '',
+      language: '',
+      description: '',
+      imageSrc: [],
+      slideIndex: 1
     }
+  },
+  methods: {
+    popupShow: function (data) {
+      this.popupState = true
+      this.name = data.name
+      this.language = data.language
+      this.description = data.description
+      this.imageSrc = data.src
+    },
+    popupClose: function () {
+      this.popupState = false
+      this.slideIndex = 1
+    },
+    plusSlides: function (n) {
+      this.showSlides(this.slideIndex += n)
+    },
+    showSlides: function (n) {
+      var i
+      var slides = this.$children
+      if (n > slides.length) { this.slideIndex = 1 }
+      if (n < 1) { this.slideIndex = slides.length }
+      for (i = 0; i < slides.length; i++) {
+        slides[i].show = false
+      }
+      slides[this.slideIndex - 1].show = true
+    }
+  }
 }
 </script>
 
@@ -94,6 +93,7 @@ export default {
     background-color: white;
     width: 50%;
     height: auto;
+    position: relative;
 }
 .project_info {
     text-align: left;
@@ -142,7 +142,7 @@ export default {
     transition: 0.6s ease;
     border-radius: 0 3px 3px 0;
     user-select:none;
-    background: #9999998a;
+    background: rgba(0, 0, 0, 0.3);
 }
 .prev {
     left : 0;
@@ -164,24 +164,25 @@ export default {
 }
 .close_btn {
     text-align: right;
-    padding: 15px 20px;
+    padding: 20px 30px;
     font-size: 20pt;
     color: #999;
     font-weight: bold;
 }
 .close_btn span {
     cursor: pointer;
-    padding: 10px 10px;
+    padding: 10px 30px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
 }
 @media screen and (max-width:900px) {
-    #project_popup {
-        /* height: auto; */
-    }
     #project_popup > div {
         width : 100%;
+        height: 100%;
     }
     .screenshot {
-        height: 250px;
+        height: 300px;
     }
     .project_info {
         padding: 20px 10px 0 10px;
@@ -197,8 +198,11 @@ export default {
         line-height: 20px;
     }
     .close_btn {
-        padding : 5px 5px;
-        font-size: 15pt;
+        padding : 20px 20px;
+        font-size: 20pt;
+    }
+    .close_btn span {
+      padding: 10px 10px;
     }
     .slide_btn_wrap {
         top : 40%;
