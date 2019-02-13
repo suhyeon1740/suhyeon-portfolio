@@ -51,7 +51,7 @@
                   <div class="email">
                       email : suhyeon1740@gmail.com
                   </div>
-                  <a href="https://github.com/suhyeon1740/Portfolio">
+                  <a href="https://github.com/suhyeon1740/suhyeon-portfolio">
                       <img src="./assets/images/GitHub-Mark/GitHub-Mark-Light-64px.png" alt="">
                   </a>
               </div>
