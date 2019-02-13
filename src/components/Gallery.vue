@@ -129,18 +129,18 @@ export default {
                        }
                    ]
                },
-               {
-                   id:4,
-                   name:'원방감시시스템',
-                   language:'',
-                   description:'',
-                   src : [
-                       {
-                           file : 'wonbang_main.jpg',
-                           width : '100%'
-                       }
-                   ]
-               },
+               // {
+               //     id:4,
+               //     name:'원방감시시스템',
+               //     language:'',
+               //     description:'',
+               //     src : [
+               //         {
+               //             file : 'wonbang_main.jpg',
+               //             width : '100%'
+               //         }
+               //     ]
+               // },
                {
                    id:5,
                    name:'포트폴리오',
