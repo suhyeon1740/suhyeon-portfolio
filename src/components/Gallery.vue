@@ -142,7 +142,7 @@ export default {
                //     ]
                // },
                {
-                   id:5,
+                   id:4,
                    name:'포트폴리오',
                    language:'VUE',
                    description:'vue로 개발한 개인 포트폴리오 사이트이다.<br>'+

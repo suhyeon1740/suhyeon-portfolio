@@ -11,7 +11,7 @@
               </div>
           </scrollactive>
           <!--HOME-->
-          <section id="home" class="flex">
+          <section id="home" class="flex" :style="{'background': 'url(' + require('./assets/images/home_bg.jpg') + ') no-repeat center center'}" >
               <div class="home-center">
                   <div class="home-text">
                       Web developer <span class="highlight">박수현</span>.
@@ -263,7 +263,6 @@ nav a#trigger {
 #home {
     width:100%;
     height:100%;
-    background: url('./assets/images/home_bg.jpg') no-repeat center center;
     background-size: cover;
     box-shadow: inset 0 0 0 1000px rgba(0,0,0,.5);
 }
